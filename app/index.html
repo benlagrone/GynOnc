@@ -1,0 +1,154 @@
+
+    <!doctype html>
+    <html lang='en'>
+    <head>
+        <title>MD Anderson Mobile</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+
+        <!-- Loading Flat UI -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/prettify.css" rel="stylesheet">
+        <link href="css/flat-ui.css" rel="stylesheet">
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+        <style>
+            [ng-cloak] {
+                display: none;
+            }
+        </style>
+        <!--[if lt IE 9]>
+        <script src="vendor/ui/html5shiv.js"></script>
+        <![endif]-->
+
+    </head>
+    <body ng-controller="NavCtrl" class="{{localPageClass}}">
+    <header >
+        <div ui-scrollfix class="navbar navbar-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1 visible-sm visible-xs">
+
+                        <div class="headerItem button ">
+
+                            <button type="button" class="btn btn-navbar"
+                                    ng-click="isActive = !isActive"
+                                    tabindex="0"
+                                    >
+                            </button>
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="/" tabindex="1"><img alt="My MD Anderson Logo"
+                                                          src="images/myMDAnderson_RGB.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 quicklinks">
+                        <div class="visible-md visible-lg">
+                            <a ng-repeat="link in navLinks | filter:topRowMenu" href="{{link.link}}"
+                               tabindex="{{$index+10}}"><span class="{{link.class}}">&nbsp;{{link.title}}</span></a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--container-->
+        </div>
+    </header>
+
+    <main class="container outer"
+          ng-class="{'closed': !isActive, 'open': isActive}"
+          ng-init="isActive = false"
+            >
+        <div class="navContainer"
+             ng-class="{'closed': !isActive, 'open': isActive}"
+                >
+            <ul class="dropdown-menu dropdown-inverse">
+
+                <li ng-repeat="link in navLinks | filter:sideMenu" rel="">
+                    <div class="divider"></div>
+                    <a href="{{link.link}}" class="opt " tabindex=""> <span
+                            class="pull-left">{{link.title}}</span> </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="container wrap"
+             ng-class="{'slide-closed': !isActive, 'slide-open': isActive}"
+             ng-init="isActive = false"
+                >
+            <ul class="wideSideMenu nav nav-list nav-list-vivid">
+                <li ng-repeat="link in navLinks | filter:sideMenu" rel="">
+                    <div class="divider"></div>
+                    <a href="{{link.link}}" tabindex=""> <span
+                            >{{link.title}}</span> </a>
+                </li>
+            </ul>
+            <div ng-view></div>
+            </div>
+    </main>
+    <footer id="footer" class=""
+            ng-class="{'slide-closed': !isActive, 'slide-open': isActive}"
+            >
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="">
+                        <li ng-repeat="link in navLinks|filter:footerMenu"><a href="{{link.link}}" target="{{link.ext}}">{{link.title}}</a>&nbsp;|&nbsp;
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <img alt="Striking Through Cancer" src="images/cancer-strikethrough.png" class="cancer-logo"
+                         width="130">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <strong>© 2014 The University of Texas MD Anderson Cancer Center</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <address>1515 Holcombe Blvd, Houston, TX 77030</address>
+                    <a href:callto="1-800-392-1611">1-800-392-1611</a> (USA) / <a href:callto="1-713-792-6161">1-713-792-6161</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 social_media">
+
+                    <ul class="bottom-icons">
+                        <li ng-repeat="link in navLinks | filter:footerSocialMenu"><a href="{{link.link}}" title="{{link.title}}" class="{{link.class}} tabindex="{{$index+100}}"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="js/require.js"></script>
+    </body>
+    </html>
