@@ -87,8 +87,9 @@ angular.module('MDAndersonMobile.services', []).
             })
         };
         formAPI.getGynOncInitComponents = function(){
+        	var group = 'gynonc';
             return $http({
-                url:'/initComponents'
+                url:'/initComponents/:' + group;
             });
         };
         formAPI.getGynOncOptions = function(parent){

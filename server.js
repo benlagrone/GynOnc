@@ -349,8 +349,21 @@ var filteredList0 = {
 app.get('/hello.txt', function (req, res) {
     res.send('patient referral form');
 });
-app.get('/initComponents',function(req,res){
-    res.send(formObject)
+
+//app.get('/initComponents',function(req,res){
+//    res.send(formObject)
+//});
+
+app.get('/initComponents/:group',function(req,res){
+	var requestedGroup = req.param('group');
+	switch(requestedGroup){
+		case ':gynonc':
+			res.send(formObject);
+			break;
+		case:':foo';
+			res.send(formObject);
+			break;
+	}
 });
 app.get('/filterInputs/:parent',function(req,res){
     var requestedFields = req.param("parent");
