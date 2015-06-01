@@ -5,14 +5,23 @@
 var express = require('express')
     , app = express();
 
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session');
+
+
 //var cors = require('cors');
 //app.use(cors());
 
-app.use(express.bodyParser());
+app.use(express.json());
+app.use(express.urlencoded())
 app.use(app.router);
 app.use("/", express.static(__dirname));
 app.use(express.json());
 app.use(express.urlencoded());
+
+app.use(cookieParser());
+app.use(cookieSession({ secret: 'app_1' }));
 
 
 var formObject = {
@@ -360,7 +369,7 @@ app.get('/initComponents/:group',function(req,res){
 		case ':gynonc':
 			res.send(formObject);
 			break;
-		case:':foo';
+		case ':foo':
 			res.send(formObject);
 			break;
 	}
