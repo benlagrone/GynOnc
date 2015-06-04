@@ -360,9 +360,9 @@ app.get('/initComponents/:group',function(req,res){
 		case ':gynonc':
 			res.send(formObject);
 			break;
-		case:':foo';
-			res.send(formObject);
-			break;
+		//case ':foo';
+		//	res.send(formObject);
+		//	break;
 	}
 });
 app.get('/filterInputs/:parent',function(req,res){
@@ -371,9 +371,9 @@ app.get('/filterInputs/:parent',function(req,res){
         case ':init':
             res.send(formObject);
             break;
-        case ':foo':
-            res.send(foo);
-            break;
+        //case ':foo':
+            //res.send(formObject);
+            //break;
     }
 });
 app.get('/options/:form',function(req,res){
