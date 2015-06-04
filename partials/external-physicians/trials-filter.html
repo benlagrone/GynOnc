@@ -1,0 +1,265 @@
+<div id="trialsFilter" class="pageWrap">
+    <h4>Search for a Gynecologic Clinical Trial</h4>
+
+    <div>
+        <form name="trialsFilter" ng-submit="submitForm()">
+
+
+            <div ng-repeat="(parentIndex, form) in forms" class="row dark {{$index==0?' top':$index==(forms.length-1)?'bottom':''}}">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="fa fa-{{form.iconClass?form.iconClass:'cog'}}">{{form.title}}</label>
+                        <input ng-if="form.type==='text'"
+                               id="{{form.ID}}"
+                               name="{{form.ID}}"
+                               tabindex="{{parentIndex*100}}"
+                               placeHolder="{{form.placeholder}}"
+                               ng-model="formOptionsModels[parentIndex].modelData"
+                               class="form-control input-hg"
+                                >
+                        <select ng-if="form.type==='select'"
+                                tabindex="{{parentIndex*10}}"
+                                id="{{form.ID}}"
+                                name="{{form.ID}}"
+                                class="form-control input-hg"
+                                ng-model="formOptionsModels[parentIndex].modelData"
+                                ng-options="choice.label group by choice.group for choice in form.options"
+                                aria-labelledby="{{form.ID}}"
+
+                                ></select>
+
+
+                    </div>
+                    <div ng-if="form.children" ng-repeat="(childIndex,childform) in form.children">
+                        <div class="form-group child">
+
+
+                            <label class="fa fa-{{childform.iconClass?childform.iconClass:'cog'}}">{{childform.title}}</label>
+                            <select ng-if="childform.type==='select'"
+                                    tabindex="{{(parentIndex*100)+(childIndex*10)}}"
+                                    id="{{childform.ID}}"
+                                    name="{{childform.ID}}"
+                                    class="form-control input-hg"
+                                    ng-model="formOptionsModels[parentIndex].children[childIndex].modelData"
+                                    ng-options="option.label group by option.group for option in childform.options"
+                                    aria-labelledby="{{childform.ID}}"
+
+                                    ></select>
+                        </div>
+                        <div ng-if="childform.children" ng-repeat="(gchildIndex,gchildForm) in childform.children">
+                            <div class="form-group gchild">
+                                <label class="fa fa-{{gchildForm.iconClass?gchildForm.iconClass:'cog'}}">{{gchildForm.title}}</label>
+                                <select ng-if="gchildForm.type==='select'"
+                                        tabindex="{{(parentIndex*100)+(childIndex*10)+gchildIndex}}"
+                                        id="{{gchildForm.ID}}"
+                                        name="{{gchildForm.ID}}"
+                                        class="form-control input-hg"
+                                        ng-model="formOptionsModels[parentIndex].children[childIndex].children[gchildIndex].modelData"
+                                        ng-options="foo.label for foo in gchildForm.options"
+                                        aria-labelledby="{{gchildForm.ID}}"
+
+                                        ></select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="row filteredResults" >
+                <h6 ng-if="filteredTrials.length>0">Search Results: &nbsp;{{filteredTrials.length}} Found</h6>
+                <div ng-if="filteredTrials.length>0" ng-repeat="(resultIndex,result) in filteredTrials" class="">
+                    <div class="alert alert-info">
+                        <div class="popover-title">
+                            <a href="http://utm-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument"><span>{{result.title}}</span></a>
+                            <button type="button" class="close fui-cross" data-dismiss="alert"></button>
+                            &nbsp;
+                            <button type="button" class="close " ng-class="result.selected===true?'fa fa-check-circle':'fa fa-circle-o'" ng-click="result.selected=!result.selected;watchSelected()"></button>
+
+                            &nbsp;
+                            <br>
+                            <a href="http://ut3d4cat3S
+                            m-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument"><span>Protocol#&nbsp;{{result.protocol}}</span></a>
+                        </div>
+                        <div class="inside">
+                            <p>
+                                <a href="http://utm-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument">{{result.description}}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="filteredTrials.length>0" class="row submit">
+                <div class="col-md-6">
+                    <span>Select the trials you want for inquiry and then submit<i style="color:green;" ng-if="trialsValidation===true" class="fa fa-check fa-2x"></i></span>
+
+                </div>
+            </div>
+
+            <div ng-if="trialsValidation===true" class="row dark top">
+                <div class="col-md-12">
+                    <div class="form-group">
+
+                        <label class="fa fa-user required" for="firstname">First Name</label>
+                        <input tabindex="104"
+                               ng-model="sendData.FirstName"
+                               id="firstname"
+                               name="firstname"
+                               type="text"
+                               placeholder="Select to enter first name"
+                               class="form-control input-hg"
+                               maxlength="29"
+                               aria-labelledby="firstname"
+                               aria-required="true"
+                               required>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div ng-if="trialsValidation===true" class="row dark">
+                <div class="col-md-12">
+                    <div class="form-group">
+
+                        <label class="fa fa-user required" for="lastname">Last Name</label>
+                        <input tabindex="105"
+                               ng-model="sendData.LastName"
+                               id="lastname"
+                               name="lastname"
+                               type="text"
+                               placeholder="Select to enter last name"
+                               class="form-control input-hg"
+                               maxlength="29"
+                               aria-labelledby="lastname"
+                               aria-required="true"
+                               required>
+
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="trialsValidation===true" class="row dark">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="fa fa-phone required" for="phone">Phone Number</label>
+
+                        <input tabindex="107"
+                               type="tel"
+                               name="telephone"
+                               ng-model="sendData.PhoneNumber"
+                               ng-keydown="phoneKey($event)"
+                               id="phone"
+                               type="text"
+                               ui-mask="{{phoneFormats}}"
+                               placeholder="(XXX)-XXX-XXXX"
+                               class="form-control input-hg"
+                               aria-labelledby="phone"
+                               aria-required="true"
+                               required>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="trialsValidation===true" class="row dark">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="fa fa-envelope required" for="email">Email</label>
+
+                        <input tabindex="107"
+                               type="email"
+                               name="email"
+                               ng-model="sendData.email"
+                               id="email"
+                               placeholder="yourname@example.com"
+                               class="form-control input-hg"
+                               aria-labelledby="email"
+                               aria-required="true"
+                               required>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="trialsValidation===true" class="row dark">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <p id="referring" class="gender required">Are you a Referring Physician?</p>
+
+                        <div class="btn-group">
+                            <label for="referring" class="referring">
+                                <input id="referring"
+                                       name="referring"
+                                       type="checkbox"
+                                       ng-model="sendData.referring"
+                                       tabindex="108"
+                                       aria-required="true"
+                                       aria-labelledby="referring"
+                                       >
+                                </input>
+
+                                <span class="fa fa-user-md" >&nbsp;</span>
+                            </label>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="trialsValidation===true" class="row dark bottom">
+                <div class="col-md-12">
+                    <div class="form-group">
+
+                        <label id="additional" class="fa fa-user" for="moreInfo">Additional Information (Optional)</label>
+                        <textarea tabindex="110"
+                                  ng-model="sendData.moreInfo"
+                                  id="moreInfo"
+                                  name="additional"
+                                  placeholder="Enter any additional information"
+                                  class="form-control input-hg"
+                                  maxlength="300"
+                                  rows="4"
+                                  cols="50"
+                                  aria-labelledby="additional"
+                                >
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="filteredTrials.length>0" class="row submit">
+                <div class="col-md-2">
+
+                        <button tabindex="111"
+                                class="btn btn-lg btn-block btn-primary"
+                                type="submit"
+                                id="submit"
+                                value="Submit"
+                                role="button"
+                                ng-disabled="trialsValidation!==true"
+                                />Submit&nbsp;&nbsp;<i ng-if="trialsValidation===true" class="fa fa-paper-plane-o"></i>
+                        </button>
+
+
+                </div>
+                <div class="col-md-2">
+                    <a tabindex="112"
+                       class="btn btn-lg btn-block btn-default"
+                       id="cancel"
+                       href="/physicians/"
+                            >Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br>
+
+
+</div>
+
