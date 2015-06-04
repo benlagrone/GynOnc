@@ -84,6 +84,7 @@ angular.module('MDAndersonMobile.services', []).
             })
         };
         formAPI.getFilterInputs = function(parent){
+            console.log(parent)
             return $http({
                 url:'/filterInputs/:'+parent
             })
