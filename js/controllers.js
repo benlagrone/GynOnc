@@ -376,6 +376,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 if (parent=="init"){
                     $scope.forms = response.formElements;
                 }
+                console.log($scope.forms)
                 for (var e = 0; e < $scope.forms.length; e++) {
                     var modelObject = {}
                     modelObject.ID = $scope.forms[e].ID;
