@@ -85,9 +85,21 @@ angular.module('MDAndersonMobile.services', []).
         };
         formAPI.getFilterInputs = function(parent){
             console.log(parent)
-            return $http({
-                url:'/filterInputs/:'+parent
-            })
+            if(parent == "init"){
+                var group = '/gynonc';
+                var APIendpoint = "/groupbyname";
+                return $http({
+                    //url:'/initComponents/:' + group
+                    //http://clinicaltrialsapi.azurewebsites.net/api/v1/groupbyname/GynOnc
+                    url: APIbaseUrl + APIendpoint + group
+                });
+            }
+            else
+            {
+                return $http({
+                    url:'/filterInputs/:'+parent
+                })
+            }
         };
         formAPI.getGynOncInitComponents = function(){
         	var group = '/gynonc';
