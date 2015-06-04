@@ -374,7 +374,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         function getInputs(parent) {
             formAPIService.getFilterInputs(parent).success(function (response, data) {
                 if (parent=="init"){
-                    $scope.forms = response.formElements;
+                    $scope.forms = response;
                 }
                 console.log($scope.forms)
                 for (var e = 0; e < $scope.forms.length; e++) {
