@@ -22,6 +22,8 @@ angular.module('MDAndersonMobile.services', []).
     })
     .factory('formAPIService', function ($http, transformRequestAsFormPost, checkUser) {
         var formAPI = {};
+        var APIbaseUrl = "http://clinicaltrialsapi.azurewebsites.net/api/v1/";
+
         formAPI.newRapidReferralFormPOST = function (data) {
             return $http({
                 method: 'post',
@@ -87,9 +89,12 @@ angular.module('MDAndersonMobile.services', []).
             })
         };
         formAPI.getGynOncInitComponents = function(){
-        	var group = 'gynonc';
+        	var group = '/gynonc';
+            var APIendpoint = "/groupbyname";
             return $http({
-                url:'/initComponents/:' + group
+                //url:'/initComponents/:' + group
+                //http://clinicaltrialsapi.azurewebsites.net/api/v1/groupbyname/GynOnc
+                url: APIbaseUrl + APIendpoint + group
             });
         };
         formAPI.getGynOncOptions = function(parent){
