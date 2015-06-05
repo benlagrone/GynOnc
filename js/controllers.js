@@ -379,13 +379,13 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 console.log($scope.forms);
                 for (var e = 0; e < $scope.forms.length; e++) {
                     var modelObject = {}
-                    modelObject.ID = $scope.forms[e].ID;
+                    modelObject.ID = $scope.forms[e].formId;
                     modelObject.modelData = undefined;
                     $scope.formOptionsModels.push(modelObject);
                     $scope.forms[e].modelData = undefined;
                     if ($scope.forms[e].type === 'select') {
                         //get the options
-                        getSelectOptions($scope.forms[e].ID, e);
+                        getSelectOptions($scope.forms[e].formId, e);
                     }
                 }
             }).error(function (response, data) {
