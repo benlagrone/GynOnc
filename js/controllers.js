@@ -385,7 +385,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     $scope.forms[e].modelData = undefined;
                     if ($scope.forms[e].type === 'select') {
                         //get the options
-                        getSelectOptions($scope.forms[e].formId, e);
+                        getSelectOptions($scope.forms[e].id, e);
                     }
                 }
             }).error(function (response, data) {
