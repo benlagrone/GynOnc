@@ -396,6 +396,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             //TODO modify to get desendent options
             console.log(id)
             formAPIService.getGynOncOptions(id).success(function (response, data) {
+                console.log(response);
+                console.log(data)
                 if(d===undefined){
                     if(c===undefined){
                         if(b===undefined){
