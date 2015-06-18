@@ -111,6 +111,7 @@ angular.module('MDAndersonMobile.services', []).
             });
         };
         formAPI.getGynOncOptions = function(parent){
+            console.log(parent)
             var APIEndpoint = "formelementoptions/"
             return $http({
                 url:APIbaseUrl + APIEndpoint + parent
