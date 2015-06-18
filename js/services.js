@@ -111,8 +111,10 @@ angular.module('MDAndersonMobile.services', []).
             });
         };
         formAPI.getGynOncOptions = function(parent){
+            var APIEndpoint = "formelementoptions"
             return $http({
-                url:'/options/:'+parent
+                url:APIbaseUrl + APIEndpoint + parent
+                //http://clinicaltrialsapi.azurewebsites.net/api/v1/formelementoptions/1
             });
         };
         formAPI.getGynOncChildren = function(parent){
