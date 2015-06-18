@@ -397,24 +397,23 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             console.log(id)
             formAPIService.getGynOncOptions(id).success(function (response, data) {
                 console.log(response);
-                console.log(data)
                 if(d===undefined){
                     if(c===undefined){
                         if(b===undefined){
                             //only do work with a value
-                            $scope.forms[a].options = response.formOptions;
+                            $scope.forms[a].options = response;
                             return;
                         } else if (b!=undefined) {
                             //TO DO the recursion still kills me on the child items
                             if ($scope.recursionCount < 1){
-                            $scope.forms[a].children[b].options = response.formOptions;
+                            $scope.forms[a].children[b].options = response;
                             return;
                             }
                             $scope.recursionCount+=1;
                             return
                         }
                     }else if(c!=undefined){
-                        $scope.forms[a].children[b].children[c].options = response.formOptions;
+                        $scope.forms[a].children[b].children[c].options = response;
                     }
                     return
                 }
