@@ -524,6 +524,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
+            console.log(newValue)
+            console.log(oldValue)
             $scope.formsCount = 0;
             //make sure the values have really changed
             if(oldValue[1]!=newValue[1]){
@@ -564,8 +566,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     }
                                 }
                             }
-                            console.log(newValue)
-                            console.log(oldValue)
                             changeChild(newValue[1][a],a)
                         }
                     }
