@@ -531,6 +531,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             $scope.formsCount = 0;
             //make sure the values have really changed
             if(oldValue[1]!=newValue[1]){
+                console.log("change detected")
                 //then go through parent input to see what changed
                 for(var a = 0;a<newValue[1].length;a++){
                     if(!angular.isUndefined(newValue[1][a].modelData)){
