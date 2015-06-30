@@ -101,8 +101,9 @@ angular.module('MDAndersonMobile.services', []).
                 })
             }
         };
-        formAPI.getGynOncInitComponents = function(){
-        	var group = '/gynonc';
+        formAPI.getGynOncInitComponents = function(group){
+            console.log(group);
+        	//var group = '/gynonc';
             var APIendpoint = "/groupbyname";
             return $http({
                 //url:'/initComponents/:' + group
@@ -119,8 +120,9 @@ angular.module('MDAndersonMobile.services', []).
             });
         };
         formAPI.getGynOncChildren = function(parent){
+            var APIendpoint = "/childformelement";
             return $http({
-                url:'/childformelement/'+parent
+                url: APIbaseUrl + APIendpoint + parent
             });
         };
         formAPI.postGynOncFilter = function(data){
