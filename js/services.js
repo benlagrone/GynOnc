@@ -120,7 +120,7 @@ angular.module('MDAndersonMobile.services', []).
             });
         };
         formAPI.getGynOncChildren = function(parent){
-            var APIendpoint = "/childformelement";
+            var APIendpoint = "/childformelement/";
             return $http({
                 url: APIbaseUrl + APIendpoint + parent
             });
