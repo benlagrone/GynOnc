@@ -564,6 +564,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     }
                                 }
                             }
+                            console.log(newValue[1][a])
                             changeChild(newValue[1][a],a)
                         }
                     }
