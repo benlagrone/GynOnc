@@ -471,6 +471,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     }
                 }
             } else {
+                console.log("getCHildren1");
                 getChildren($scope.forms[a].ID + $scope.formOptionsModels[a].modelData.ID, a)
             }
         }
@@ -483,6 +484,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     }
                 }
             } else {
+                console.log("getCHildren2");
                 getChildren($scope.forms[a].ID + $scope.formOptionsModels[a].modelData.ID + $scope.formOptionsModels[a].children[b].modelData.ID, a, b)
             }
         }
@@ -533,6 +535,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             if(oldValue[1]!=newValue[1]){
                 console.log("change detected")
                 //then go through parent input to see what changed
+                //TODO rewrite with angular foreach
                 for(var a = 0;a<newValue[1].length;a++){
                     if(!angular.isUndefined(newValue[1][a].modelData)){
                         //todo add if children
@@ -560,8 +563,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     if(!angular.isUndefined(oldValue[1][a].children[b].modelData)){
                                         if(newValue[1][a].children[b].modelData.ID!==oldValue[1][a].children[b].modelData.ID){
                                             if(!angular.isUndefined(oldValue[1][a].children[b].children)){
-
-
                                                 $scope.formOptionsModels[a].children[b].children=undefined;
                                                 $scope.forms[a].children[b].children=undefined;
                                             }
@@ -569,13 +570,10 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     }
                                 }
                             }
-                            console.log("look here 2")
-                            console.log(newValue[1][a])
-                            console.log(a)
                             changeChild(newValue[1][a],a)
                         }
                     }
-                }
+                }//ends the loop
             }
 
             if (newValue[2]) {
