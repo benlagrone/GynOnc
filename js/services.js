@@ -123,8 +123,8 @@ angular.module('MDAndersonMobile.services', []).
             console.log("***looking at child object API")
             console.log(parent);
 
-            console.log(APIbaseUrl + APIendpoint + parent)
             var APIendpoint = "/childformelement/";
+            console.log(APIbaseUrl + APIendpoint + parent)
             return $http({
                 url: APIbaseUrl + APIendpoint + parent
             });
