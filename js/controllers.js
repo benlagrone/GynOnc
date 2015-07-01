@@ -472,9 +472,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 }
             } else {
                 console.log("getCHildren1");
-                console.log($scope.forms[a]);
-                console.log($scope.formOptionsModels[a].modelData);
-                getChildren($scope.forms[a].ID + $scope.formOptionsModels[a].modelData.ID, a)
+                console.log($scope.forms[a].id);
+                console.log($scope.formOptionsModels[a].modelData.id);
+                getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id, a)
             }
         }
 
