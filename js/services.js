@@ -121,7 +121,9 @@ angular.module('MDAndersonMobile.services', []).
         };
         formAPI.getGynOncChildren = function(parent){
             console.log("***looking at child object API")
-            console.log(parent)
+            console.log(parent);
+
+            console.log(APIbaseUrl + APIendpoint + parent)
             var APIendpoint = "/childformelement/";
             return $http({
                 url: APIbaseUrl + APIendpoint + parent
