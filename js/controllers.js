@@ -441,12 +441,12 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     console.log($scope.formOptionsModels[a]);
                                     console.log($scope.formOptionsModels[a].modelData.id);
                                     console.log($scope.forms[a]);
-                                    console.log($scope.forms[a].children[child].ID);
+                                    console.log($scope.forms[a].children[child].id);
                                     console.log(a);
                                     console.log(child);
-                                    getSelectOptions($scope.formOptionsModels[a].modelData.ID+$scope.forms[a].children[child].ID, a,child);
+                                    getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id, a,child);
                                     var childModel = {}
-                                    childModel.ID=$scope.formOptionsModels[a].modelData.ID+$scope.forms[a].children[child].ID;
+                                    childModel.ID=$scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id;
                                     childModel.modelData=undefined;
                                     $scope.formOptionsModels[a].children.push(childModel);
                                 }
