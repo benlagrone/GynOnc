@@ -429,7 +429,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     if(d===undefined){
                         if(c===undefined){
                             if(b===undefined){
-                                //only do work with a value
+                                //only do work w
+                                console.log($scope.forms[a])ith a value
                                 $scope.forms[a].children = response.formOptions;
                                 $scope.formOptionsModels[a].children=[];
                                 for (var child = 0; child < $scope.forms[a].children.length; child++) {
@@ -440,7 +441,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     $scope.formOptionsModels[a].children.push(childModel);
                                 }
                             } else if(b!=undefined){
-                                console.log($scope.forms[a])
                                 $scope.forms[a].children[b].children=response.formOptions;
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
