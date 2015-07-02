@@ -442,6 +442,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     $scope.formOptionsModels[a].children.push(childModel);
                                 }
                             } else if(b!=undefined){
+                                console.log($scope.forms[a])
                                 $scope.forms[a].children[b].children=response.formOptions;
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
