@@ -114,7 +114,7 @@ angular.module('MDAndersonMobile.services', []).
         formAPI.getGynOncOptions = function(id){
             console.log(id)
             var APIEndpoint = "formelementoptions/"
-            console.log(APIbaseUrl + APIendpoint + id)
+            console.log(APIbaseUrl + APIEndpoint + id)
             return $http({
                 url:APIbaseUrl + APIEndpoint + id
                 //http://clinicaltrialsapi.azurewebsites.net/api/v1/formelementoptions/1
