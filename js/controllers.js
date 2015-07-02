@@ -401,6 +401,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                         if(b===undefined){
                             //only do work with a value
                             $scope.forms[a].options = response;
+                            console.log($scope.forms[a]);
                             return;
                         } else if (b!=undefined) {
                             //TO DO the recursion still kills me on the child items
