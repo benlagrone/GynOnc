@@ -439,7 +439,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     //TODO fix this path
                                     console.log(response)
                                     console.log($scope.formOptionsModels[a]);
-                                    console.log($scope.formOptionsModels[a].modelData.ID);
+                                    console.log($scope.formOptionsModels[a].modelData.id);
                                     console.log($scope.forms[a]);
                                     console.log($scope.forms[a].children[child].ID);
                                     console.log(a);
