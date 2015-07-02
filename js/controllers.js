@@ -394,9 +394,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function getSelectOptions(id,a,b,c,d) {
             //TODO modify to get desendent options
-            console.log(id)
             formAPIService.getGynOncOptions(id).success(function (response, data) {
-                console.log(response);
                 if(d===undefined){
                     if(c===undefined){
                         if(b===undefined){
@@ -474,11 +472,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     }
                 }
             } else {
-                console.log("getCHildren1");
-                console.log($scope.forms[a]);
-                console.log($scope.forms[a].id);
-                console.log($scope.formOptionsModels[a]);
-                console.log($scope.formOptionsModels[a].modelData.id);
                 //TODO this is where you can fix this path
                 getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id, a)
             }
@@ -492,7 +485,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     }
                 }
             } else {
-                console.log("getCHildren2");
                 getChildren($scope.forms[a].ID + $scope.formOptionsModels[a].modelData.ID + $scope.formOptionsModels[a].children[b].modelData.ID, a, b)
             }
         }
@@ -534,14 +526,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
-            console.log("look here 1");
-            console.log($scope.formOptionsModels);
-            console.log(newValue);
-            console.log(oldValue);
             $scope.formsCount = 0;
             //make sure the values have really changed
             if(oldValue[1]!=newValue[1]){
-                console.log("change detected")
                 //then go through parent input to see what changed
                 //TODO rewrite with angular foreach
                 for(var a = 0;a<newValue[1].length;a++){
@@ -653,7 +640,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         getInputs("init");
     })
     .controller('trialsConfirmation',['$scope',function($scope){
-console.log("foo")
     }])
     .controller('bodyUIController', ['$scope', function ($scope) {
 
