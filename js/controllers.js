@@ -435,7 +435,10 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 for (var child = 0; child < $scope.forms[a].children.length; child++) {
                                     console.log($scope.formOptionsModels[a].modelData.id)
                                     console.log($scope.forms[a].children[child].id)
-                                    getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id, a,child);
+                                    //TODO this is adding the numeric ids together 125 + 1 = 126!! - EDIT - changed
+                                    //TODO Update the Database to reflect the form element options to the right form, not the parent
+                                    //getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id, a,child);
+                                    getSelectOptions($scope.forms[a].children[child].id, a,child);
                                     var childModel = {}
                                     childModel.ID=$scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id;
                                     childModel.modelData=undefined;
@@ -445,6 +448,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.forms[a].children[b].children=response.formOptions;
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
+                                    //TODO this is adding the numeric ids together 125 + 1 = 126!!
                                     getSelectOptions($scope.formOptionsModels[a].modelData.ID+$scope.formOptionsModels[a].children[b].modelData.ID+$scope.forms[a].children[b].children[gchild].ID, a,b,gchild);
                                     var gchildModel = {};
                                     gchildModel.ID=$scope.formOptionsModels[a].children[b].modelData.ID+$scope.forms[a].children[b].children[gchild].ID;
