@@ -89,9 +89,10 @@ angular.module('MDAndersonMobile.services', []).
             {
                 var group = '/gynonc';
                 var APIendpoint = "/groupbyname";
-                var trailer = "/?includeFormElements=true";
+                var trailerTrue = "/?includeFormElements=true";
+                var trailerFalse = "/?includeFormElements=false";
                 return $http({
-                    url: APIbaseUrl + APIendpoint + group + trailer
+                    url: APIbaseUrl + APIendpoint + group + trailerFalse
                 });
             }
             else
