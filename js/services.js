@@ -92,7 +92,7 @@ angular.module('MDAndersonMobile.services', []).
                 var trailerTrue = "/?includeFormElements=true";
                 var trailerFalse = "/?includeFormElements=false";
                 return $http({
-                    url: APIbaseUrl + APIendpoint + group + trailerFalse
+                    url: APIbaseUrl + APIendpoint + group
                 });
             }
             else
