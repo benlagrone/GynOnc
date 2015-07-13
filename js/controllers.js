@@ -373,6 +373,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function getInputs(parent) {
             formAPIService.getFilterInputs(parent).success(function (response, data) {
+                console.log(response);
                 if (parent=="init"){
                     $scope.forms = response[0].formElements;
                 }
@@ -397,7 +398,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             console.log(id)
             //TODO the ID being sent is the incorrect ID, it needs the ID of the form in the DB, not a locally formed ID
             formAPIService.getGynOncOptions(id).success(function (response, data) {
-                console.log(response)
+                console.log(response);
                 if(d===undefined){
                     if(c===undefined){
                         if(b===undefined){
