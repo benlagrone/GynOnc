@@ -410,7 +410,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                             //TO DO the recursion still kills me on the child items
                             if ($scope.recursionCount < 1){
                                 console.log($scope.forms[a])
-                            $scope.forms[a].children[b].options = response;
+                            //$scope.forms[a].children[b].options = response;
                             return;
                             }
                             $scope.recursionCount+=1;
