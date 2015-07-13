@@ -386,6 +386,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     $scope.forms[e].modelData = undefined;
                     if ($scope.forms[e].type === 'select') {
                         //get the options
+                        console.log($scope.forms)
                         getSelectOptions($scope.forms[e].id, e);
                     }
                 }
