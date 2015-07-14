@@ -103,7 +103,7 @@ angular.module('MDAndersonMobile.services', []).
         formAPI.getGynOncInitComponents = function(group){
             console.log(group);
         	//var group = '/gynonc';
-            var APIendpoint = "/groupbyname";
+            var APIendpoint = "groupbyname";
             return $http({
                 //url:'/initComponents/:' + group
                 //http://clinicaltrialsapi.azurewebsites.net/api/v1/groupbyname/GynOnc
