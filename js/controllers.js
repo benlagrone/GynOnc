@@ -372,6 +372,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         $scope.phoneFormats = "";
 
         function getInputs(parent) {
+            console.log("get inputs")
             formAPIService.getFilterInputs(parent).success(function (response, data) {
                 if (parent=="init"){
                     $scope.forms = response[0].formElements;
@@ -392,6 +393,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function getSelectOptions(id,a,b,c,d) {
+            console.log("get options")
             //TODO modify to get desendent options
             //TODO the ID being sent is the incorrect ID, it needs the ID of the form in the DB, not a locally formed ID
             formAPIService.getGynOncOptions(id).success(function (response, data) {
@@ -421,6 +423,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function getChildren(parent, a, b, c, d) {
+            console.log("get CHildren")
             formAPIService.getGynOncChildren(parent).success(function (response, data) {
                 if(!response.noChildren){
                     if(d===undefined){
@@ -430,12 +433,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.forms[a].children = response;
                                 $scope.formOptionsModels[a].children=[];
                                 for (var child = 0; child < $scope.forms[a].children.length; child++) {
-                                    console.log("I'm getting child options")
-                                    console.log($scope.formOptionsModels[a].modelData.id)
-                                    console.log($scope)
-                                    //getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id, a,child);
-                                    console.log(a)
-                                    console.log(child)
                                     getSelectOptions($scope.forms[a].children[child].id, a,child);
                                     var childModel = {}
                                     childModel.ID=$scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id;
@@ -466,10 +463,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function changeChild(parentValue,a){
-
+            console.log("change child")
             if(!angular.isUndefined(parentValue.children)){
                 for (var b=0;b<parentValue.children.length;b++){
-
                     if($scope.formOptionsModels[a].children[b].modelData!=undefined){
                         changeGChild(parentValue.children[b],a,b)
                     }
@@ -481,6 +477,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function changeGChild(childValue,a,b){
+            console.log("chaneg gchild")
             if(childValue.children!=undefined){
                 for(var c=0;c<$scope.formOptionsModels[a].children[b].children.length;c++){
                     if($scope.formOptionsModels[a].children[b].children[c].modelData!=undefined){
@@ -529,6 +526,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
+            console.log("Watch change")
             $scope.formsCount = 0;
             //make sure the values have really changed
             if(oldValue[1]!=newValue[1]){
