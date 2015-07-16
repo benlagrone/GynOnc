@@ -396,10 +396,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function getSelectOptions(id,a,b,c,d) {
             //TODO modify to get desendent options
-            console.log(id)
             //TODO the ID being sent is the incorrect ID, it needs the ID of the form in the DB, not a locally formed ID
             formAPIService.getGynOncOptions(id).success(function (response, data) {
-                console.log(response);
                 if(d===undefined){
                     if(c===undefined){
                         if(b===undefined){
@@ -409,7 +407,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                         } else if (b!=undefined) {
                             //TO DO the recursion still kills me on the child items
                             if ($scope.recursionCount < 1){
-                                console.log($scope.forms[a])
                             //$scope.forms[a].children[b].options = response;
                             return;
                             }
