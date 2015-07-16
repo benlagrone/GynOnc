@@ -10,8 +10,8 @@
                     <div class="form-group">
                         <label class="fa fa-{{form.iconClass?form.iconClass:'cog'}}">{{form.title}}</label>
                         <input ng-if="form.type==='text'"
-                               id="{{form.ID}}"
-                               name="{{form.ID}}"
+                               id="{{form.id}}"
+                               name="{{form.id}}"
                                tabindex="{{parentIndex*100}}"
                                placeHolder="{{form.placeholder}}"
                                ng-model="formOptionsModels[parentIndex].modelData"
@@ -19,12 +19,12 @@
                                 >
                         <select ng-if="form.type==='select'"
                                 tabindex="{{parentIndex*10}}"
-                                id="{{form.ID}}"
-                                name="{{form.ID}}"
+                                id="{{form.id}}"
+                                name="{{form.id}}"
                                 class="form-control input-hg"
                                 ng-model="formOptionsModels[parentIndex].modelData"
                                 ng-options="choice.label group by choice.group for choice in form.options"
-                                aria-labelledby="{{form.ID}}"
+                                aria-labelledby="{{form.id}}"
 
                                 ></select>
 
@@ -37,12 +37,12 @@
                             <label class="fa fa-{{childform.iconClass?childform.iconClass:'cog'}}">{{childform.title}}</label>
                             <select ng-if="childform.type==='select'"
                                     tabindex="{{(parentIndex*100)+(childIndex*10)}}"
-                                    id="{{childform.ID}}"
-                                    name="{{childform.ID}}"
+                                    id="{{childform.id}}"
+                                    name="{{childform.id}}"
                                     class="form-control input-hg"
                                     ng-model="formOptionsModels[parentIndex].children[childIndex].modelData"
                                     ng-options="option.label group by option.group for option in childform.options"
-                                    aria-labelledby="{{childform.ID}}"
+                                    aria-labelledby="{{childform.id}}"
 
                                     ></select>
                         </div>
@@ -51,12 +51,12 @@
                                 <label class="fa fa-{{gchildForm.iconClass?gchildForm.iconClass:'cog'}}">{{gchildForm.title}}</label>
                                 <select ng-if="gchildForm.type==='select'"
                                         tabindex="{{(parentIndex*100)+(childIndex*10)+gchildIndex}}"
-                                        id="{{gchildForm.ID}}"
-                                        name="{{gchildForm.ID}}"
+                                        id="{{gchildForm.id}}"
+                                        name="{{gchildForm.id}}"
                                         class="form-control input-hg"
                                         ng-model="formOptionsModels[parentIndex].children[childIndex].children[gchildIndex].modelData"
                                         ng-options="foo.label for foo in gchildForm.options"
-                                        aria-labelledby="{{gchildForm.ID}}"
+                                        aria-labelledby="{{gchildForm.id}}"
 
                                         ></select>
                             </div>
