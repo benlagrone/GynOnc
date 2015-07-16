@@ -441,10 +441,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.formOptionsModels[a].children=[];
                                 for (var child = 0; child < $scope.forms[a].children.length; child++) {
                                     console.log($scope.formOptionsModels[a].modelData.id)
-                                    console.log($scope.forms[a].children[child].id)
-                                    //TODO this is adding the numeric ids together 125 + 1 = 126!! - EDIT - changed
-                                    //TODO Update the Database to reflect the form element options to the right form, not the parent
-                                    //getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id, a,child);
+                                    console.log($scope.forms[a].children[child])//getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id, a,child);
+                                    console.log("I'm getting child options")
                                     getSelectOptions($scope.forms[a].children[child].id, a,child);
                                     var childModel = {}
                                     childModel.ID=$scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id;
