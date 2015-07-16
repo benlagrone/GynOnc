@@ -445,6 +445,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
                                     //TODO this is adding the numeric ids together 125 + 1 = 126!!
+                                    console.log($scope.formOptionsModels[a].modelData.ID)
                                     getSelectOptions($scope.formOptionsModels[a].modelData.ID+$scope.formOptionsModels[a].children[b].modelData.ID+$scope.forms[a].children[b].children[gchild].ID, a,b,gchild);
                                     var gchildModel = {};
                                     gchildModel.ID=$scope.formOptionsModels[a].children[b].modelData.ID+$scope.forms[a].children[b].children[gchild].ID;
@@ -536,6 +537,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 //then go through parent input to see what changed
                 //TODO rewrite with angular foreach
                 for(var a = 0;a<newValue[1].length;a++){
+                    //if there is an options selected in the first level
                     if(!angular.isUndefined(newValue[1][a].modelData)){
                         //todo add if children
                             if (newValue[1][a].modelData!=oldValue[1][a].modelData) {
@@ -548,7 +550,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 }
                             }
                         if(!angular.isUndefined(oldValue[1][a].modelData)) {
-                            if (newValue[1][a].modelData.ID != oldValue[1][a].modelData.ID) {
+                            if (newValue[1][a].modelData.id != oldValue[1][a].modelData.id) {
                                 $scope.formOptionsModels[a].children=undefined;
                                 $scope.forms[a].children=undefined;
                             }
@@ -560,7 +562,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                             if(!angular.isUndefined(newValue[1][a].children)){
                                 for (var b=0;b<oldValue[1][a].children.length;b++){
                                     if(!angular.isUndefined(oldValue[1][a].children[b].modelData)){
-                                        if(newValue[1][a].children[b].modelData.ID!==oldValue[1][a].children[b].modelData.ID){
+                                        if(newValue[1][a].children[b].modelData.id!==oldValue[1][a].children[b].modelData.id){
                                             if(!angular.isUndefined(oldValue[1][a].children[b].children)){
                                                 $scope.formOptionsModels[a].children[b].children=undefined;
                                                 $scope.forms[a].children[b].children=undefined;
