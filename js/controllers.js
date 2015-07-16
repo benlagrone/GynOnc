@@ -373,11 +373,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function getInputs(parent) {
             formAPIService.getFilterInputs(parent).success(function (response, data) {
-                console.log(response);
                 if (parent=="init"){
                     $scope.forms = response[0].formElements;
                 }
-                console.log($scope.forms);
                 for (var e = 0; e < $scope.forms.length; e++) {
                     var modelObject = {}
                     modelObject.ID = $scope.forms[e].formId;
@@ -386,7 +384,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     $scope.forms[e].modelData = undefined;
                     if ($scope.forms[e].type === 'select') {
                         //get the options
-                        console.log($scope.forms)
                         getSelectOptions($scope.forms[e].id, e);
                     }
                 }
