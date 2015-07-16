@@ -394,8 +394,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function getSelectOptions(id,a,b,c,d) {
             console.log("get options")
-            //TODO modify to get desendent options
-            //TODO the ID being sent is the incorrect ID, it needs the ID of the form in the DB, not a locally formed ID
             formAPIService.getGynOncOptions(id).success(function (response, data) {
                 if(d===undefined){
                     if(c===undefined){
@@ -440,6 +438,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     $scope.formOptionsModels[a].children.push(childModel);
                                 }
                             } else if(b!=undefined){
+                                console.log("b")
+                                console.log(b)
                                 $scope.forms[a].children[b].children=response.formOptions;
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
