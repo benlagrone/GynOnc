@@ -84,7 +84,6 @@ angular.module('MDAndersonMobile.services', []).
             })
         };
         formAPI.getFilterInputs = function(parent){
-            console.log(parent)
             if(parent == "init")
             {
                 var group = '/gynonc';
@@ -102,29 +101,20 @@ angular.module('MDAndersonMobile.services', []).
         };
         formAPI.getGynOncInitComponents = function(group){
             console.log(group);
-        	//var group = '/gynonc';
             var APIendpoint = "groupbyname";
             return $http({
-                //url:'/initComponents/:' + group
-                //http://clinicaltrialsapi.azurewebsites.net/api/v1/groupbyname/GynOnc
                 url: APIbaseUrl + APIendpoint + group
             });
         };
         formAPI.getGynOncOptions = function(id){
-            console.log(id)
             var APIEndpoint = "formelementoptions/"
-            console.log(APIbaseUrl + APIEndpoint + id)
             return $http({
                 url:APIbaseUrl + APIEndpoint + id
                 //http://clinicaltrialsapi.azurewebsites.net/api/v1/formelementoptions/1
             });
         };
         formAPI.getGynOncChildren = function(parent){
-            console.log("***looking at child object API")
-            console.log(parent);
-
             var APIendpoint = "childformelement/";
-            console.log(APIbaseUrl + APIendpoint + parent)
             return $http({
                 url: APIbaseUrl + APIendpoint + parent
             });
