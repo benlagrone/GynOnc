@@ -467,7 +467,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     console.log($scope.formOptionsModels[a].modelData.id)
                                     console.log($scope.formOptionsModels[a].children[b].modelData.id)
                                     console.log($scope.forms[a].children[b].children[gchild].id)
-                                    getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.formOptionsModels[a].children[b].modelData.id+$scope.forms[a].children[b].children[gchild].id, a,b,gchild);
+                                    getSelectOptions($scope.forms[a].children[b].children[gchild].id, a,b,gchild);
+                                    //getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.formOptionsModels[a].children[b].modelData.id+$scope.forms[a].children[b].children[gchild].id, a,b,gchild);
                                     var gchildModel = {};
                                     gchildModel.id=$scope.formOptionsModels[a].children[b].modelData.id+$scope.forms[a].children[b].children[gchild].id;
                                     gchildModel.modelData=undefined;
