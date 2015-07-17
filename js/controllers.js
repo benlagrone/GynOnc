@@ -454,6 +454,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                             } else if(b!=undefined){
                                 console.log("b")
                                 console.log(b)
+                                console.log(response)
                                 $scope.forms[a].children[b].children=response.formOptions;
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 console.log(response)
