@@ -455,7 +455,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 console.log("b")
                                 console.log(b)
                                 console.log(response)
-                                $scope.forms[a].children[b].children=response.formOptions;
+                                $scope.forms[a].children[b].children=response;
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 console.log(response)
                                 console.log($scope.forms[a].children[b])
@@ -512,6 +512,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 }
             } else {
                 console.log("getting gchild")
+                console.log($scope.forms[a].id)
+                console.log($scope.formOptionsModels[a].modelData.id)
+                console.log($scope.formOptionsModels[a].children[b].modelData.id)
                 getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id + $scope.formOptionsModels[a].children[b].modelData.id, a, b)
             }
         }
