@@ -396,6 +396,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             console.log("get options")
             console.log(id + "," + a + "," + b + "," + c + "," + d)
             formAPIService.getGynOncOptions(id).success(function (response, data) {
+                console.log(response)
                 if(d===undefined){
                     if(c===undefined){
                         if(b===undefined){
