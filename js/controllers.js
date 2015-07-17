@@ -438,6 +438,13 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     var childModel = {}
                                     childModel.id=$scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id;
                                     childModel.modelData=undefined;
+                                    console.log("** LOOK HERE **")
+                                    console.log(childModel.id);
+                                    console.log($scope.formOptionsModels[a]);
+                                    console.log($scope.formOptionsModels[a].modelData.id);
+                                    console.log(child)
+                                    console.log($scope.forms[a])
+                                    console.log($scope.forms[a].children[child].id)
                                     $scope.formOptionsModels[a].children.push(childModel);
                                 }
                             } else if(b!=undefined){
@@ -547,24 +554,22 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     //if there is an options selected in the first level
                     if(!angular.isUndefined(newValue[1][a].modelData)){
                         //todo add if children
-                            if (newValue[1][a].modelData!=oldValue[1][a].modelData) {
-                                if(a===0){
-                                    if(newValue[1][a].modelData.length>3){
-                                        $scope.formsCount+=1
-                                    }
-                                }else{
-                                    $scope.formsCount+=1
-                                }
-                            }
+                        if (newValue[1][a].modelData!=oldValue[1][a].modelData) {
+                           if(a===0){
+                               if(newValue[1][a].modelData.length>3)$scope.formsCount+=1;
+                           }else{
+                               $scope.formsCount+=1
+                           }
+                        }
                         if(!angular.isUndefined(oldValue[1][a].modelData)) {
                             if (newValue[1][a].modelData.id != oldValue[1][a].modelData.id) {
                                 $scope.formOptionsModels[a].children=undefined;
                                 $scope.forms[a].children=undefined;
-                            }
-                        }else{
-                            console.log("Change Child 1")
+                                }
+                            }else{
+                                console.log("Change Child 1")
                                 changeChild(newValue[1][a],a)
-                            }
+                        }
                         if(!angular.isUndefined(oldValue[1][a].children)){
                             //todo check to see if we need to reset a child value
                             if(!angular.isUndefined(newValue[1][a].children)){
