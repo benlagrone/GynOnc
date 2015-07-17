@@ -424,8 +424,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function getChildren(parent, a, b, c, d) {
             console.log("get CHildren")
-            console.log(a + "," + b + "," + c + "," + d)
+            console.log(parent + "," + a + "," + b + "," + c + "," + d)
             formAPIService.getGynOncChildren(parent).success(function (response, data) {
+                console.log("response:" + response)
                 if(!response.noChildren){
                     if(d===undefined){
                         if(c===undefined){
