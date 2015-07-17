@@ -469,19 +469,21 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         function changeChild(parentValue,a){
             console.log("change child")
             if(!angular.isUndefined(parentValue.children)){
+                console.log("call change Gchild")
                 for (var b=0;b<parentValue.children.length;b++){
                     if($scope.formOptionsModels[a].children[b].modelData!=undefined){
                         changeGChild(parentValue.children[b],a,b)
                     }
                 }
             } else {
+                console.log("call get children")
                 //TODO this is where you can fix this path
                 getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id, a)
             }
         }
 
         function changeGChild(childValue,a,b){
-            console.log("chaneg gchild")
+            console.log("change gchild")
             if(childValue.children!=undefined){
                 for(var c=0;c<$scope.formOptionsModels[a].children[b].children.length;c++){
                     if($scope.formOptionsModels[a].children[b].children[c].modelData!=undefined){
