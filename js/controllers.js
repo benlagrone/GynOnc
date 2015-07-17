@@ -562,6 +562,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.forms[a].children=undefined;
                             }
                         }else{
+                            console.log("Change Child 1")
                                 changeChild(newValue[1][a],a)
                             }
                         if(!angular.isUndefined(oldValue[1][a].children)){
@@ -578,6 +579,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     }
                                 }
                             }
+                            console.log("Change Child 2")
                             changeChild(newValue[1][a],a)
                         }
                     }
