@@ -515,7 +515,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 console.log($scope.forms[a].id)
                 console.log($scope.formOptionsModels[a].modelData.id)
                 console.log($scope.formOptionsModels[a].children[b].modelData.id)
-                getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id + $scope.formOptionsModels[a].children[b].modelData.id, a, b)
+                getChildren($scope.formOptionsModels[a].children[b].modelData.id, a, b)
+                //getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id + $scope.formOptionsModels[a].children[b].modelData.id, a, b)
             }
         }
 
