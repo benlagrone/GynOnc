@@ -434,11 +434,14 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.forms[a].children = response;
                                 $scope.formOptionsModels[a].children=[];
                                 for (var child = 0; child < $scope.forms[a].children.length; child++) {
+                                    console.log("** LOOK HERE **")
+                                    console.log($scope.forms[a].children[child].id)
+                                    console.log(a)
+                                    console.log(child)
                                     getSelectOptions($scope.forms[a].children[child].id, a,child);
                                     var childModel = {}
                                     childModel.id=$scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id;
                                     childModel.modelData=undefined;
-                                    console.log("** LOOK HERE **")
                                     console.log(childModel.id);
                                     console.log($scope.formOptionsModels[a]);
                                     console.log($scope.formOptionsModels[a].modelData.id);
