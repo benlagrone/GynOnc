@@ -456,6 +456,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 console.log(b)
                                 $scope.forms[a].children[b].children=response.formOptions;
                                 $scope.formOptionsModels[a].children[b].children=[];
+                                console.log($scope.forms[a].children[b])
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
                                     //TODO this is adding the numeric ids together 125 + 1 = 126!!
                                     console.log($scope.formOptionsModels[a].modelData.id)
