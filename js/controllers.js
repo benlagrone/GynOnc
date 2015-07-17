@@ -479,6 +479,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 console.log("call get children")
                 //TODO this is where you can fix this path
                 console.log($scope.forms[a].id + "," + $scope.formOptionsModels[a].modelData.id + "," + a);
+                console.log($scope.forms[a]);
+                console.log($scope.formOptionsModels[a]);
                 getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id, a)
             }
         }
