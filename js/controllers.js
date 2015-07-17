@@ -502,6 +502,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         function changeGChild(childValue,a,b){
             console.log("change gchild")
             if(childValue.children!=undefined){
+                console.log("not getting gchild")
                 for(var c=0;c<$scope.formOptionsModels[a].children[b].children.length;c++){
                     if($scope.formOptionsModels[a].children[b].children[c].modelData!=undefined){
                         //The grandchild changed
