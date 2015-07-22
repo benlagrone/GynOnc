@@ -439,7 +439,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.formOptionsModels[a].children[b].children=[];
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
                                     getSelectOptions($scope.forms[a].children[b].children[gchild].id, a,b,gchild);
-                                    //getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.formOptionsModels[a].children[b].modelData.id+$scope.forms[a].children[b].children[gchild].id, a,b,gchild);
                                     var gchildModel = {};
                                     gchildModel.id=$scope.formOptionsModels[a].children[b].modelData.id+$scope.forms[a].children[b].children[gchild].id;
                                     gchildModel.modelData=undefined;
@@ -465,7 +464,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     }
                 }
             } else {
-                //getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id, a)
                 getChildren($scope.formOptionsModels[a].modelData.id, a)
             }
         }
@@ -479,7 +477,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 }
             } else {
                 getChildren($scope.formOptionsModels[a].children[b].modelData.id, a, b)
-                //getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id + $scope.formOptionsModels[a].children[b].modelData.id, a, b)
             }
         }
 
@@ -574,6 +571,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     return;
                 }
             }
+
+            if($scope.formsCount>0)
+                console.log("forms COunt" + $scope.formsCount)
             if($scope.formsCount>0)
                 submitSearchObject();
         },true);
