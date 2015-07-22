@@ -372,7 +372,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         $scope.phoneFormats = "";
 
         function getInputs(parent) {
-            console.log("get inputs")
             formAPIService.getFilterInputs(parent).success(function (response, data) {
                 if (parent=="init"){
                     $scope.forms = response[0].formElements;
@@ -393,19 +392,14 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function getSelectOptions(id,a,b,c,d) {
-            console.log("get options")
-            console.log(id + "," + a + "," + b + "," + c + "," + d)
             formAPIService.getGynOncOptions(id).success(function (response, data) {
-                console.log(response)
                 if(d===undefined){
                     if(c===undefined){
                         if(b===undefined){
-                            console.log("a")
                             //only do work with a value
                             $scope.forms[a].options = response;
                             return;
                         } else if (b!=undefined) {
-                            console.log("b")
                             //TO DO the recursion still kills me on the child items
                             if ($scope.recursionCount < 1){
                             $scope.forms[a].children[b].options = response;
@@ -415,7 +409,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                             return
                         }
                     }else if(c!=undefined){
-                        console.log("c")
                         $scope.forms[a].children[b].children[c].options = response;
                     }
                     return
@@ -426,10 +419,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function getChildren(parent, a, b, c, d) {
-            console.log("get CHildren")
-            console.log(parent + "," + a + "," + b + "," + c + "," + d)
             formAPIService.getGynOncChildren(parent).success(function (response, data) {
-                console.log("response:" + response)
                 if(!response.noChildren){
                     if(d===undefined){
                         if(c===undefined){
@@ -438,35 +428,16 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.forms[a].children = response;
                                 $scope.formOptionsModels[a].children=[];
                                 for (var child = 0; child < $scope.forms[a].children.length; child++) {
-                                    console.log("** LOOK HERE **")
-                                    console.log($scope.forms[a].children[child].id)
-                                    console.log(a)
-                                    console.log(child)
                                     getSelectOptions($scope.forms[a].children[child].id, a,child);
                                     var childModel = {}
                                     childModel.id=$scope.formOptionsModels[a].modelData.id+$scope.forms[a].children[child].id;
                                     childModel.modelData=undefined;
-                                    console.log(childModel.id);
-                                    console.log($scope.formOptionsModels[a]);
-                                    console.log($scope.formOptionsModels[a].modelData.id);
-                                    console.log(child)
-                                    console.log($scope.forms[a])
-                                    console.log($scope.forms[a].children[child].id)
                                     $scope.formOptionsModels[a].children.push(childModel);
                                 }
                             } else if(b!=undefined){
-                                console.log("b")
-                                console.log(b)
-                                console.log(response)
                                 $scope.forms[a].children[b].children=response;
                                 $scope.formOptionsModels[a].children[b].children=[];
-                                console.log(response)
-                                console.log($scope.forms[a].children[b])
                                 for (var gchild = 0; gchild<$scope.forms[a].children[b].children.length;gchild++){
-                                    //TODO this is adding the numeric ids together 125 + 1 = 126!!
-                                    console.log($scope.formOptionsModels[a].modelData.id)
-                                    console.log($scope.formOptionsModels[a].children[b].modelData.id)
-                                    console.log($scope.forms[a].children[b].children[gchild].id)
                                     getSelectOptions($scope.forms[a].children[b].children[gchild].id, a,b,gchild);
                                     //getSelectOptions($scope.formOptionsModels[a].modelData.id+$scope.formOptionsModels[a].children[b].modelData.id+$scope.forms[a].children[b].children[gchild].id, a,b,gchild);
                                     var gchildModel = {};
@@ -487,40 +458,26 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function changeChild(parentValue,a){
-            console.log("change child")
             if(!angular.isUndefined(parentValue.children)){
-                console.log("call change Gchild")
                 for (var b=0;b<parentValue.children.length;b++){
                     if($scope.formOptionsModels[a].children[b].modelData!=undefined){
                         changeGChild(parentValue.children[b],a,b)
                     }
                 }
             } else {
-                console.log("call get children")
-                //TODO this is where you can fix this path
-                console.log($scope.forms[a].id + "," + $scope.formOptionsModels[a].modelData.id + "," + a);
-                console.log($scope.forms[a]);
-                console.log($scope.formOptionsModels[a]);
                 //getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id, a)
                 getChildren($scope.formOptionsModels[a].modelData.id, a)
             }
         }
 
         function changeGChild(childValue,a,b){
-            console.log("change gchild")
-            console.log(childValue)
             if(childValue.children!=undefined){
-                console.log("not getting gchild")
                 for(var c=0;c<$scope.formOptionsModels[a].children[b].children.length;c++){
                     if($scope.formOptionsModels[a].children[b].children[c].modelData!=undefined){
                         //The grandchild changed
                     }
                 }
             } else {
-                console.log("getting gchild")
-                console.log($scope.forms[a].id)
-                console.log($scope.formOptionsModels[a].modelData.id)
-                console.log($scope.formOptionsModels[a].children[b].modelData.id)
                 getChildren($scope.formOptionsModels[a].children[b].modelData.id, a, b)
                 //getChildren($scope.forms[a].id + $scope.formOptionsModels[a].modelData.id + $scope.formOptionsModels[a].children[b].modelData.id, a, b)
             }
@@ -563,9 +520,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
-            console.log("Watch change")
-            console.log(newValue)
-            console.log(oldValue)
             $scope.formsCount = 0;
             //make sure the values have really changed
             if(oldValue[1]!=newValue[1]){
@@ -588,7 +542,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                 $scope.forms[a].children=undefined;
                                 }
                             }else{
-                                console.log("Change Child 1")
                                 changeChild(newValue[1][a],a)
                         }
                         if(!angular.isUndefined(oldValue[1][a].children)){
@@ -605,7 +558,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                     }
                                 }
                             }
-                            console.log("Change Child 2")
                             changeChild(newValue[1][a],a)
                         }
                     }
@@ -622,7 +574,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     return;
                 }
             }
-            //console.log($scope.formsCount)
             if($scope.formsCount>0)
                 submitSearchObject();
         },true);

@@ -127,7 +127,7 @@ angular.module('MDAndersonMobile.services', []).
             })
         };
         formAPI.postTrialsInquiry = function(data){
-            //console.log(data)
+            console.log(data)
             return $http({
                 method:'post',
                 url:'/submitinquiry',
