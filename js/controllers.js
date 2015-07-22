@@ -571,7 +571,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     return;
                 }
             }
-
+console.log($scope.formsCount)
             if($scope.formsCount>0)
                 console.log("forms COunt" + $scope.formsCount)
             if($scope.formsCount>0)
