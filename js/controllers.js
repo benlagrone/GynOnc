@@ -532,7 +532,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                             console.log(newValue[1][a].modelData)
                             console.log(oldValue[1][a].modelData)
                            if(a===0){
-                               if(!angular.isUndefined(newValue[1][a].modelData)) if(!angular.isUndefined(newValue[1][a].modelData));
+                               if(!angular.isUndefined(newValue[1][a].modelData))$scope.formsCount+=1;
                                //if(newValue[1][a].modelData.length>3)$scope.formsCount+=1;
                            }else{
                                $scope.formsCount+=1
