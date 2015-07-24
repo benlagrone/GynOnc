@@ -528,10 +528,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                         //todo add if children
                         if (newValue[1][a].modelData!=oldValue[1][a].modelData) {
                             console.log(a)
-                            console.log(newValue[1])
+                            console.log(newValue)
                             console.log(newValue[1][a].modelData)
                             console.log(oldValue[1][a].modelData)
-                            console.log(newValue[1][a].modelData.length)
                            if(a===0){
                                if(!angular.isUndefined(newValue[1][a].modelData)) if(!angular.isUndefined(newValue[1][a].modelData));
                                //if(newValue[1][a].modelData.length>3)$scope.formsCount+=1;
