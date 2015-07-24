@@ -481,6 +481,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function submitSearchObject(){
+            console.log($scope.formOptionsModels)
             formAPIService.postGynOncFilter($scope.formOptionsModels).success(function(response,data){
                 //this is to remove trials from the list that are not in the response
                 for (var l=0;l<$scope.filteredTrials.length;l++){
@@ -527,10 +528,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     if(!angular.isUndefined(newValue[1][a].modelData)){
                         //todo add if children
                         if (newValue[1][a].modelData!=oldValue[1][a].modelData) {
-                            console.log(a)
-                            console.log(newValue)
-                            console.log(newValue[1][a].modelData)
-                            console.log(oldValue[1][a].modelData)
                            if(a===0){
                                if(!angular.isUndefined(newValue[1][a].modelData))$scope.formsCount+=1;
                                //if(newValue[1][a].modelData.length>3)$scope.formsCount+=1;
@@ -576,9 +573,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     return;
                 }
             }
-console.log($scope.formsCount)
-            if($scope.formsCount>0)
-                console.log("forms COunt" + $scope.formsCount)
             if($scope.formsCount>0)
                 submitSearchObject();
         },true);
