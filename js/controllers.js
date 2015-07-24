@@ -531,6 +531,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                             console.log(newValue[1])
                             console.log(newValue[1][a].modelData)
                             console.log(oldValue[1][a].modelData)
+                            console.log(newValue[1][a].modelData.length)
                            if(a===0){
                                if(newValue[1][a].modelData.length>3)$scope.formsCount+=1;
                            }else{
