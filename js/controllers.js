@@ -527,6 +527,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     if(!angular.isUndefined(newValue[1][a].modelData)){
                         //todo add if children
                         if (newValue[1][a].modelData!=oldValue[1][a].modelData) {
+                            console.log(a)
+                            console.log(newValue[1])
                             console.log(newValue[1][a].modelData)
                             console.log(oldValue[1][a].modelData)
                            if(a===0){
