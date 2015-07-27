@@ -8,7 +8,8 @@ angular.module('MDAndersonMobile', [
   'MDAndersonMobile.services',
   'MDAndersonMobile.directives',
     'MDAndersonMobile.configs'
-]).
+]);
+angular.module('MDAndersonMobile').
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
   $routeProvider.when('/trials-filter', {templateUrl: 'partials/external-physicians/trials-filter.html', controller: 'gynOncTrialsFilter'});
