@@ -370,7 +370,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         $scope.trialsSelectedCount = 0;
         $scope.sendData = {};
         $scope.phoneFormats = "";
-        $scope.
+        $scope.protocolRequest = {};
 
         function getInputs(parent) {
             formAPIService.getFilterInputs(parent).success(function (response, data) {
@@ -521,7 +521,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             })
         }
 
-        function boilDownRequest(){
+        function boilDownRequest(request){
 
         }
 
