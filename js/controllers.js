@@ -370,6 +370,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         $scope.trialsSelectedCount = 0;
         $scope.sendData = {};
         $scope.phoneFormats = "";
+        $scope.
 
         function getInputs(parent) {
             formAPIService.getFilterInputs(parent).success(function (response, data) {
@@ -485,6 +486,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             //TODO, have to write the API POST for this submission, you already have the
             //TODO or write as a GET, and bold the object down to the deepest child request inside Angular controller
             formAPIService.postGynOncFilter($scope.formOptionsModels).success(function(response,data){
+                console.log(response)
                 //this is to remove trials from the list that are not in the response
                 for (var l=0;l<$scope.filteredTrials.length;l++){
                     var inResponse = false;
@@ -517,6 +519,10 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     }
                 }
             })
+        }
+
+        function boilDownRequest(){
+
         }
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
