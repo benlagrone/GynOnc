@@ -22,6 +22,8 @@
     // load all of the dependencies asynchronously.
  $script([
      //'vendor/angular/angular.min.js',
+
+     //TODO - upgrade angular version
      'bower_components/angular/angular.js',
      'vendor/angular/angular-route.js',
      'vendor/angular/angular-sanitize.js',
