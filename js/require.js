@@ -26,7 +26,7 @@
      'vendor/angular/angular-route.js',
      'vendor/angular/angular-sanitize.js',
      'vendor/angular/ui-bootstrap-tpls-0.10.0.min.js',
-     //'bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js',
+     'bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js',
      'bower_components/angular-ui-utils/ui-utils.min.js',
      'bower_components/angular-scroll/angular-scroll.min.js',
      'js/app.js',
@@ -42,6 +42,6 @@
  ], function () {
      // when all is done, execute bootstrap angular application
      //angular.bootstrap(document, ['MDAndersonMobile'],['ui.bootstrap', 'ngSanitize']);
-     angular.bootstrap(document, ['MDAndersonMobile'], ['ui.bootstrap', 'ngSanitize', 'geolocation', 'duScroll']);
+     angular.bootstrap(document, ['MDAndersonMobile'], ['ui.bootstrap', 'ngSanitize','duScroll']);
 
  });
