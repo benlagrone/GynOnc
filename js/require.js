@@ -42,6 +42,6 @@
  ], function () {
      // when all is done, execute bootstrap angular application
      //angular.bootstrap(document, ['MDAndersonMobile'],['ui.bootstrap', 'ngSanitize']);
-     angular.bootstrap(document, ['MDAndersonMobile'], ['ui.bootstrap', 'ngSanitize','duScroll']);
+     angular.bootstrap(document, ['MDAndersonMobile'], ['ui.bootstrap', 'ngSanitize', 'geolocation', 'duScroll']);
 
  });
