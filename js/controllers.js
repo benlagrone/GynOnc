@@ -523,8 +523,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function boilDownRequest(){
             angular.forEach($scope.formOptionsModels, function(value, key){
-                console.log(value)
-                console.log(value.modelData)
+                if(!angular.isUndefined(value.modelData)){
+                    console.log(value.modelData)
+                }
                 console.log(key)
             });
         }
