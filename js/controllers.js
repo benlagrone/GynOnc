@@ -522,9 +522,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function boilDownRequest(){
-            console.log($scope.formOptionsModels)
             angular.forEach($scope.formOptionsModels, function(value, key){
                 console.log(value)
+                console.log(value.modelData)
                 console.log(key)
             });
         }
