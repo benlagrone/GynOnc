@@ -119,10 +119,16 @@ angular.module('MDAndersonMobile.services', []).
                 url: APIbaseUrl + APIendpoint + parent
             });
         };
-        formAPI.postGynOncFilter = function(data){
+        formAPI.getGynOncChildren = function(parent){
+            var APIendpoint = "childformelement/";
+            return $http({
+                url: APIbaseUrl + APIendpoint + parent
+            });
+        };
+        formAPI.getProtocolsByFormElementOptionId = function(data){
             return $http({
                 method:'post',
-                url:'/submitfilter',
+                url:'/protocolformelementoptionsbyid',
                 data:data
             })
         };
