@@ -522,8 +522,11 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function boilDownRequest(){
+
+            //TODO, make this look recursively inside children
             angular.forEach($scope.formOptionsModels, function(value, key){
                 if(!angular.isUndefined(value.modelData)){
+                    console.log(value);
                     console.log(value.modelData)
                     console.log(value.modelData.id)
                     formAPIService.getProtocolsByFormElementOptionId(value.modelData.id).success(function(response,data){
