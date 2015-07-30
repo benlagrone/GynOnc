@@ -537,7 +537,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                        angular.forEach(value.children,function(cValue,key){
                            console.log("childValue - "+key)
                            console.log(cValue);
-                           boilDownRequest(cValue)
+                           if(!anglular.isUndefined(cValue.modelData)){
+                               boilDownRequest(cValue)
+                           }
                        })
                     };
                 }
