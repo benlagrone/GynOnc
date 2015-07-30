@@ -532,7 +532,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     formAPIService.getProtocolsByFormElementOptionId(value.modelData.id).success(function(response,data){
                         console.log(response)
                     })
-                    if(!angular.isUndefined(value.children)}{
+                    if(!angular.isUndefined(value.children)){
                        console.log("I have children still")
 
                     };
