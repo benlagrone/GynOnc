@@ -522,15 +522,10 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function boilDownRequest(optionsModel){
-
-            //TODO, make this look recursively inside children
             console.log(optionsModel)
             angular.forEach(optionsModel, function(value, key){
                 console.log(value)
                 if(!angular.isUndefined(value.modelData)){
-                    //console.log(value);
-                    //console.log(value.modelData)
-                    //console.log(value.modelData.id)
                     formAPIService.getProtocolsByFormElementOptionId(value.modelData.id).success(function(response,data){
                         //console.log(response)
                     })
@@ -538,7 +533,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                        //console.log("I have children still")
                        angular.forEach(value.children,function(cValue,key){
                            //console.log("childValue - "+key)
-                           //console.log(cValue);
+                           console.log(cValue);
                            if(!angular.isUndefined(cValue.modelData)){
                                boilDownRequest(cValue)
                            }
