@@ -99,11 +99,11 @@ angular.module('MDAndersonMobile.services', []).
                 })
             }
         };
-        formAPI.getGynOncInitComponents = function(group){
+        formAPI.getGynOncInitComponents = function(id){
             console.log(group);
             var APIendpoint = "groupbyname";
             return $http({
-                url: APIbaseUrl + APIendpoint + group
+                url: APIbaseUrl + APIendpoint + id
             });
         };
         formAPI.getGynOncOptions = function(id){
@@ -113,16 +113,22 @@ angular.module('MDAndersonMobile.services', []).
                 //http://clinicaltrialsapi.azurewebsites.net/api/v1/formelementoptions/1
             });
         };
-        formAPI.getGynOncChildren = function(parent){
+        formAPI.getGynOncChildren = function(id){
             var APIendpoint = "childformelement/";
             return $http({
-                url: APIbaseUrl + APIendpoint + parent
+                url: APIbaseUrl + APIendpoint + id
             });
         };
-        formAPI.getProtocolsByFormElementOptionId = function(parent){
+        formAPI.getProtocolsByFormElementOptionId = function(id){
             var APIendpoint = "protocolformelementoptionsbyid/";
             return $http({
-                url: APIbaseUrl + APIendpoint + parent
+                url: APIbaseUrl + APIendpoint + id
+            });
+        };
+        formAPI.getProtocols = function(id){
+            var APIendpoint = "protocols/";
+            return $http({
+                url: APIbaseUrl + APIendpoint + id
             });
         };
         formAPI.postGynOncFilter = function(data){
