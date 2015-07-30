@@ -541,9 +541,18 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             formAPIService.getProtocolsByFormElementOptionId(model.id).success(function(response,data){
                 var protocolObject = {}
                 protocolObject.formOption = model;
+                angular.forEach(response, function(value,key){
+                    console.log(value)
+                })
                 protocolObject.protocolList = response;
                 $scope.protocolRequestList.push(protocolObject);
             });
+        }
+
+        function getProtocol(id){
+            formAPIService.getProtocols(id).success(function(response,data){
+
+            })
         }
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
