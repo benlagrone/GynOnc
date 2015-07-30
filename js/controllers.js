@@ -370,7 +370,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         $scope.trialsSelectedCount = 0;
         $scope.sendData = {};
         $scope.phoneFormats = "";
-        $scope.protocolRequest = [];
+        $scope.protocolRequestList = [];
 
         function getInputs(parent) {
             formAPIService.getFilterInputs(parent).success(function (response, data) {
@@ -527,9 +527,11 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 //console.log(value)
                 if(!angular.isUndefined(value.modelData)){
                     formAPIService.getProtocolsByFormElementOptionId(value.modelData.id).success(function(response,data){
-                        console.log(value.modelData)
-                        console.log(response)
-                    })
+                        var protocolObject = {}
+                        protocolObject.formOption = value.modelData;
+                        protocolObject.protocolList = response;
+                        $scope.protocolRequestList.push(protocolObject);
+                    });
                     if(!angular.isUndefined(value.children)){
                            if(!angular.isUndefined(value.children)){
                                boilDownRequest(value.children)
@@ -537,7 +539,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     };
                 }
             });
-        }
+            console.log($scope.protocolRequestList)
+        };
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
             $scope.formsCount = 0;
