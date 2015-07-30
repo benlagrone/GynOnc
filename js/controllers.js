@@ -535,10 +535,10 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                         //console.log(response)
                     })
                     if(!angular.isUndefined(value.children)){
-                       console.log("I have children still")
+                       //console.log("I have children still")
                        angular.forEach(value.children,function(cValue,key){
-                           console.log("childValue - "+key)
-                           console.log(cValue);
+                           //console.log("childValue - "+key)
+                           //console.log(cValue);
                            if(!angular.isUndefined(cValue.modelData)){
                                boilDownRequest(cValue)
                            }
