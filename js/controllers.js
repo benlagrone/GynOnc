@@ -370,7 +370,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         $scope.trialsSelectedCount = 0;
         $scope.sendData = {};
         $scope.phoneFormats = "";
-        $scope.protocolRequest = {};
+        $scope.protocolRequest = [];
 
         function getInputs(parent) {
             formAPIService.getFilterInputs(parent).success(function (response, data) {
@@ -522,25 +522,20 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function boilDownRequest(optionsModel){
-            console.log(optionsModel)
+            //console.log(optionsModel)
             angular.forEach(optionsModel, function(value, key){
-                console.log(value)
+                //console.log(value)
                 if(!angular.isUndefined(value.modelData)){
                     formAPIService.getProtocolsByFormElementOptionId(value.modelData.id).success(function(response,data){
-                        //console.log(response)
+                        console.log(value.modelData)
+                        console.log(response)
                     })
                     if(!angular.isUndefined(value.children)){
-                       //console.log("I have children still")
-                       //angular.forEach(value.children,function(cValue,key){
-                           //console.log("childValue - "+key)
-                           //console.log(cValue);
                            if(!angular.isUndefined(value.children)){
                                boilDownRequest(value.children)
                            }
-                       //})
                     };
                 }
-                //console.log(key)
             });
         }
 
