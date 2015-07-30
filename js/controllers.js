@@ -531,13 +531,13 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     })
                     if(!angular.isUndefined(value.children)){
                        //console.log("I have children still")
-                       angular.forEach(value.children,function(cValue,key){
+                       //angular.forEach(value.children,function(cValue,key){
                            //console.log("childValue - "+key)
-                           console.log(cValue);
-                           if(!angular.isUndefined(cValue.modelData)){
-                               boilDownRequest(cValue)
+                           //console.log(cValue);
+                           if(!angular.isUndefined(value.children)){
+                               boilDownRequest(value.children)
                            }
-                       })
+                       //})
                     };
                 }
                 //console.log(key)
