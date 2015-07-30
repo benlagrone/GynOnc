@@ -526,15 +526,18 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             //TODO, make this look recursively inside children
             angular.forEach(optionsModel, function(value, key){
                 if(!angular.isUndefined(value.modelData)){
-                    console.log(value);
-                    console.log(value.modelData)
-                    console.log(value.modelData.id)
+                    //console.log(value);
+                    //console.log(value.modelData)
+                    //console.log(value.modelData.id)
                     formAPIService.getProtocolsByFormElementOptionId(value.modelData.id).success(function(response,data){
                         console.log(response)
                     })
                     if(!angular.isUndefined(value.children)){
                        console.log("I have children still")
-
+                       angular.forEach(value.children,function(Cvalue,key){
+                           console.log("childValue"+key)
+                           console.log(Cvalue);
+                       })
                     };
                 }
                 //console.log(key)
