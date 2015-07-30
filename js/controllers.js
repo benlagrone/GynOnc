@@ -524,6 +524,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         function boilDownRequest(optionsModel){
 
             //TODO, make this look recursively inside children
+            console.log(optionsModel)
             angular.forEach(optionsModel, function(value, key){
                 console.log(value)
                 if(!angular.isUndefined(value.modelData)){
