@@ -538,6 +538,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         };
 
         function getProtocolsByFormElement(model){
+
             formAPIService.getProtocolsByFormElementOptionId(model.id).success(function(response,data){
                 var protocolObject = {}
                 protocolObject.formOption = model;
@@ -548,6 +549,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     protocolList.push(protocolList)
                 })
                 protocolObject.protocolList = protocolList;
+                //TODO filter to make these unique
                 $scope.protocolRequestList.push(protocolObject);
             });
         }
