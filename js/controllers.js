@@ -525,6 +525,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
             //TODO, make this look recursively inside children
             angular.forEach(optionsModel, function(value, key){
+                console.log(value)
                 if(!angular.isUndefined(value.modelData)){
                     //console.log(value);
                     //console.log(value.modelData)
