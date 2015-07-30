@@ -485,7 +485,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             //TODO, have to write the API POST for this submission, you already have the
             //TODO or write as a GET, and bold the object down to the deepest child request inside Angular controller
             boilDownRequest($scope.formOptionsModels)
-            formAPIService.postGynOncFilter($scope.formOptionsModels).success(function(response,data){
+            /*formAPIService.postGynOncFilter($scope.formOptionsModels).success(function(response,data){
                 console.log(response)
                 //this is to remove trials from the list that are not in the response
                 for (var l=0;l<$scope.filteredTrials.length;l++){
@@ -518,7 +518,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                         });
                     }
                 }
-            })
+            })*/
         }
 
         function boilDownRequest(optionsModel){
@@ -545,7 +545,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 angular.forEach(response, function(value,key){
                     //TODO - change this misspelling on the API server through migration
                     console.log(getProtocol(value.prtotocol_Id))
-                    protocolList.push(protocolListObject)
+                    protocolList.push(protocolList)
                 })
                 protocolObject.protocolList = protocolList;
                 $scope.protocolRequestList.push(protocolObject);
