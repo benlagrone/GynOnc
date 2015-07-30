@@ -530,13 +530,14 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     //console.log(value.modelData)
                     //console.log(value.modelData.id)
                     formAPIService.getProtocolsByFormElementOptionId(value.modelData.id).success(function(response,data){
-                        console.log(response)
+                        //console.log(response)
                     })
                     if(!angular.isUndefined(value.children)){
                        console.log("I have children still")
-                       angular.forEach(value.children,function(Cvalue,key){
-                           console.log("childValue"+key)
-                           console.log(Cvalue);
+                       angular.forEach(value.children,function(cValue,key){
+                           console.log("childValue - "+key)
+                           console.log(cValue);
+                           boilDownRequest(cValue)
                        })
                     };
                 }
