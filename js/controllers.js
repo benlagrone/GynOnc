@@ -549,7 +549,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
                         foo = response;
 
-                        protocolList.push(foo);
+                        $scope.filteredTrials.push(response);
                     })
                     //protocolList.push(getProtocol(value.id))
                 })
