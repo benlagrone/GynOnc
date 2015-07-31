@@ -543,6 +543,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     })
                 })
             });
+            console.log($scope.filteredTrials)
         }
 
 
