@@ -546,6 +546,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     //TODO - change this misspelling on the API server through migration
                     protocolList.push(getProtocol(value.id))
                 })
+                console.log(protocolList)
                 protocolObject.protocolList = protocolList;
                 console.log(protocolList)
                 $scope.filteredTrials.push(protocolObject);
