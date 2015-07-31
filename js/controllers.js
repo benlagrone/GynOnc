@@ -494,6 +494,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     };
                 }
             });
+        }
             /*formAPIService.postGynOncFilter($scope.formOptionsModels).success(function(response,data){
                 console.log(response)
                 //this is to remove trials from the list that are not in the response
