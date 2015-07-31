@@ -523,8 +523,8 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function boilDownRequest(optionsModel){
             angular.forEach(optionsModel, function(value, key){
-                console.log(value)
                 if(!angular.isUndefined(value.modelData)){
+                    console.log(value)
                     getProtocolsByFormElement(value.modelData)
                     if(!angular.isUndefined(value.children)){
                            if(!angular.isUndefined(value.children)){
@@ -536,7 +536,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         };
 
         function getProtocolsByFormElement(model){
-            console.log(model)
             formAPIService.getProtocolsByFormElementOptionId(model.id).success(function(response,data){
                 angular.forEach(response, function(value,key){
                     //TODO - change this misspelling on the API server through migration
