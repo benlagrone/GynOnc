@@ -545,7 +545,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 angular.forEach(response, function(value,key){
                     //TODO - change this misspelling on the API server through migration
                     var foo;
-                    formAPIService.getProtocols(id).success(function(response,data){
+                    formAPIService.getProtocols(value.id).success(function(response,data){
 
                         foo = response
                     })
