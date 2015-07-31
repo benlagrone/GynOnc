@@ -525,6 +525,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             angular.forEach(optionsModel, function(value, key){
                 if(!angular.isUndefined(value.modelData)){
                     console.log(value)
+                    console.log($scope.filteredTrials)
                     getProtocolsByFormElement(value.modelData)
                     if(!angular.isUndefined(value.children)){
                            if(!angular.isUndefined(value.children)){
