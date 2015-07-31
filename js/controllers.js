@@ -535,7 +535,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         };
 
         function getProtocolsByFormElement(model){
+            console.log(model)
             formAPIService.getProtocolsByFormElementOptionId(model.id).success(function(response,data){
+                console.log(response)
                 angular.forEach(response, function(value,key){
                     //TODO - change this misspelling on the API server through migration
                     formAPIService.getProtocols(value.id).success(function(response,data){
@@ -544,7 +546,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 })
             });
             console.log($scope.filteredTrials)
-        }
+        };
 
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
