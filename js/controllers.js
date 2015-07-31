@@ -544,19 +544,16 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 var protocolList = [];
                 angular.forEach(response, function(value,key){
                     //TODO - change this misspelling on the API server through migration
-                    //console.log(getProtocol(value.id))
                     protocolList.push(getProtocol(value.id))
                 })
                 protocolObject.protocolList = protocolList;
-                //TODO filter to make these unique
+                console.log(protocolList)
                 $scope.filteredTrials.push(protocolObject);
             });
         }
 
         function getProtocol(id){
-            console.log(id)
             formAPIService.getProtocols(id).success(function(response,data){
-                console.log(response)
                 return response;
             })
         }
