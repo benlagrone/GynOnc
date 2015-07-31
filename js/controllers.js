@@ -484,7 +484,16 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         function submitSearchObject(){
             //TODO, have to write the API POST for this submission, you already have the
             //TODO or write as a GET, and bold the object down to the deepest child request inside Angular controller
-            boilDownRequest($scope.formOptionsModels)
+            angular.forEach($scope.formOptionsModels, function(value, key){
+                if(!angular.isUndefined(value.modelData)){
+                    getProtocolsByFormElement(value.modelData)
+                    if(!angular.isUndefined(value.children)){
+                        if(!angular.isUndefined(value.children)){
+                            boilDownRequest(value.children)
+                        }
+                    };
+                }
+            });
             /*formAPIService.postGynOncFilter($scope.formOptionsModels).success(function(response,data){
                 console.log(response)
                 //this is to remove trials from the list that are not in the response
@@ -518,7 +527,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                         });
                     }
                 }
-            })*/
+            })
         }
 
         function boilDownRequest(optionsModel){
@@ -532,7 +541,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     };
                 }
             });
-        };
+        };*/
 
         function getProtocolsByFormElement(model){
             console.log(model)
