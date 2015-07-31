@@ -523,6 +523,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
 
         function boilDownRequest(optionsModel){
             angular.forEach(optionsModel, function(value, key){
+                console.log(value)
                 if(!angular.isUndefined(value.modelData)){
                     getProtocolsByFormElement(value.modelData)
                     if(!angular.isUndefined(value.children)){
