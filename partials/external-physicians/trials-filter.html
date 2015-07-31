@@ -73,7 +73,7 @@
                 <div ng-if="filteredTrials.length>0" ng-repeat="(resultIndex,result) in filteredTrials" class="">
                     <div class="alert alert-info">
                         <div class="popover-title">
-                            <a href="http://utm-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument"><span>{{result.title}}</span></a>
+                            <a href="http://utm-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument"><span>{{result.prtotocol_Id}}</span></a>
                             <button type="button" class="close fui-cross" data-dismiss="alert"></button>
                             &nbsp;
                             <button type="button" class="close " ng-class="result.selected===true?'fa fa-check-circle':'fa fa-circle-o'" ng-click="result.selected=!result.selected;watchSelected()"></button>
