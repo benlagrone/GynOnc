@@ -522,9 +522,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         }
 
         function boilDownRequest(optionsModel){
-            //console.log(optionsModel)
             angular.forEach(optionsModel, function(value, key){
-                //console.log(value)
                 if(!angular.isUndefined(value.modelData)){
                     getProtocolsByFormElement(value.modelData)
                     if(!angular.isUndefined(value.children)){
@@ -534,7 +532,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     };
                 }
             });
-            console.log($scope.protocolRequestList)
         };
 
         function getProtocolsByFormElement(model){
@@ -548,11 +545,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             });
         }
 
-        function getProtocol(id){
-            formAPIService.getProtocols(id).success(function(response,data){
-                return response;
-            })
-        }
 
         $scope.$watch('[forms2,formOptionsModels,sendData.PhoneNumber]',function(newValue,oldValue){
             $scope.formsCount = 0;
