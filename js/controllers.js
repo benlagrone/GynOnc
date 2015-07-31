@@ -544,7 +544,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 var protocolList = [];
                 angular.forEach(response, function(value,key){
                     //TODO - change this misspelling on the API server through migration
-                    console.log(getProtocol(value.prtotocol_Id))
+                    console.log(getProtocol(value))
                     protocolList.push(protocolList)
                 })
                 protocolObject.protocolList = protocolList;
