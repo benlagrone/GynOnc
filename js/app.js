@@ -12,7 +12,7 @@ angular.module('MDAndersonMobile', [
 angular.module('MDAndersonMobile').
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/all-protocols', {templateUrl: 'partials/external-physicians/all-protocols.html', controller: 'allProtocols'});
-  $routeProvider.when('/single-protocol/:id', {templateUrl: 'partials/external-physicians/singleProtocol.html', controller: 'singleProtocol'});
+  $routeProvider.when('/single-protocol/:id', {templateUrl: 'partials/external-physicians/single-protocol.html', controller: 'singleProtocol'});
   $routeProvider.when('/trials-filter', {templateUrl: 'partials/external-physicians/trials-filter.html', controller: 'gynOncTrialsFilter'});
   $routeProvider.when('/trials-confirmation',{templateUrl:'partials/external-physicians/trials-confirmation.html',controller:'trialsConfirmation'});
   $routeProvider.when('/rapid-referral-form', {templateUrl: 'partials/external-physicians/rapidReferralForm.html', controller: 'rapidReferralForm'});
