@@ -632,7 +632,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
     }])
     .controller('singleProtocol',['$scope',function($scope,formAPIService,$routeParams){
         $scope.params = $routeParams;
-        console.log($scope.params)
+        console.log($routeParams)
     }])
     .controller('allProtocols',['$scope',function($scope,formAPIService){
         $scope.allProtocols = [];
