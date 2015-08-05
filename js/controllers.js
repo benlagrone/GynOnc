@@ -2,7 +2,7 @@
 
 /* Controllers */
 //var MDAndersonMobile = angular.module('MDAndersonMobile');
-angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', 'ui.utils', 'duScroll','ngRoute'])
+angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', 'ui.utils', 'duScroll'])
 
     .controller('referralThankYou', function ($scope, $document, $location, $anchorScroll) {
         function toTheTop() {
@@ -630,11 +630,10 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
     })
     .controller('trialsConfirmation',['$scope',function($scope){
     }])
-    .controller('singleProtocol',['$scope',function($scope,formAPIService,$route, $routeParams, $location){
+    .controller('singleProtocol',['$scope',function($scope,formAPIService, $routeParams){
         $scope.params = $routeParams;
-        console.log($route)
         console.log($routeParams)
-        console.log($location)
+        console.log($scope)
     }])
     .controller('allProtocols',['$scope',function($scope,formAPIService){
         $scope.allProtocols = [];
