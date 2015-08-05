@@ -485,40 +485,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             //TODO, have to write the API POST for this submission, you already have the
             //TODO or write as a GET, and bold the object down to the deepest child request inside Angular controller
             boilDownRequest($scope.formOptionsModels)
-            /*formAPIService.postGynOncFilter($scope.formOptionsModels).success(function(response,data){
-                console.log(response)
-                //this is to remove trials from the list that are not in the response
-                for (var l=0;l<$scope.filteredTrials.length;l++){
-                    var inResponse = false;
-                    for (var d=0;d<response.list.length;d++){
-                        if ($scope.filteredTrials[l].id===response.list[d].id){
-                            inResponse = true;
-                        }
-                    }
-                    if(inResponse!==true){
-                        $scope.filteredTrials.splice(l,1)
-                    }
-                }
-                //this function is for adding new trials to the list
-                for (var r = 0; r < response.list.length; r++) {
-                    var thisExists = false;
-                    var filterLocal = false;
-                    for(var e=0;e<$scope.filteredTrials.length;e++){
-                        if (response.list[r].id===$scope.filteredTrials[e].id){
-                            thisExists = true;
-                        }
-                    }
-                    if(thisExists!==true){
-                        $scope.filteredTrials.push({
-                            id: response.list[r].id,
-                            description: response.list[r].description,
-                            protocol: response.list[r].protocol,
-                            title: response.list[r].title,
-                            selected:false
-                        });
-                    }
-                }
-            })*/
         }
 
         function boilDownRequest(optionsModel){
@@ -530,8 +496,6 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                                boilDownRequest(value.children)
                            }
                     };
-                    console.log(value)
-                    console.log($scope.filteredTrials)
                 }
             });
         };
@@ -666,10 +630,19 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
     })
     .controller('trialsConfirmation',['$scope',function($scope){
     }])
+    .controller('singleProtocol',['$scope',function($scope,formAPIService){
+
+    }])
+    .controller('allProtocols',['$scope',function($scope,formAPIService){
+        $scope.allProtocols = [];
+
+        function getAllProtocols(){
+
+        };
+    }])
     .controller('bodyUIController', ['$scope', function ($scope) {
 
     }])
-
     .controller('NavCtrl', function ($scope, $route, $routeParams, $location) {
         $scope.navLinks = [
             {title: 'Home', link: '/physicians/', location: [
