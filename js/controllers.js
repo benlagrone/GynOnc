@@ -2,7 +2,7 @@
 
 /* Controllers */
 //var MDAndersonMobile = angular.module('MDAndersonMobile');
-angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', 'ui.utils', 'duScroll'])
+angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', 'ui.utils', 'duScroll','ngRoute'])
 
     .controller('referralThankYou', function ($scope, $document, $location, $anchorScroll) {
         function toTheTop() {
