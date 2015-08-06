@@ -630,7 +630,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
     })
     .controller('trialsConfirmation',['$scope',function($scope){
     }])
-    .controller('singleProtocol',['$scope',function($scope,formAPIService){
+    .controller('singleProtocol',function($scope,formAPIService){
         //TODO use this to see the route info
         console.log($scope.$parent)
         console.log($scope.$parent.$routeParams)
@@ -648,7 +648,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                 })
         };
         getProtocol(protocolId);
-    }])
+    })
     .controller('allProtocols',['$scope',function($scope,formAPIService){
         $scope.allProtocols = [];
 
