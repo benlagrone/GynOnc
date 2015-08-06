@@ -641,7 +641,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         function getProtocol(id){
             console.log(10)
             console.log(id)
-            formAPIService.getProtocols(id).success(function(){
+            formAPIService.getProtocols(10).success(function(){
                 console.log(response)
             }).then(function(){
                     console.log(response)
