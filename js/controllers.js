@@ -643,7 +643,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
             console.log(id)
             formAPIService.getProtocols(10).success(function(response){
                 console.log(response)
-            }).then(function(){
+            }).then(function(response){
                     console.log(response)
                 })
         };
