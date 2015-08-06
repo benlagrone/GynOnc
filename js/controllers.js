@@ -635,7 +635,9 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         console.log($scope.$parent)
         console.log($scope.$parent.$routeParams)
         var protocolId = $scope.$parent.$routeParams.id;
-        console.log(protocolId[0])
+        if(protocolId[0] == ':')
+        protocolId = protocolId.slice(1);
+        console.log(protocolId)
         function getProtocol(protocolId){
             formAPIService.getProtocols(protocolId).success(function(){
                 console.log(response)
