@@ -645,7 +645,7 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
                     console.log(response)
                 })
         };
-        getProtocol();
+        getProtocol(protocolId);
     }])
     .controller('allProtocols',['$scope',function($scope,formAPIService){
         $scope.allProtocols = [];
