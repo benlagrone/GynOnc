@@ -631,18 +631,13 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
     .controller('trialsConfirmation',['$scope',function($scope){
     }])
     .controller('singleProtocol',function($scope,formAPIService){
-        //TODO use this to see the route info
-        console.log($scope.$parent)
-        console.log($scope.$parent.$routeParams)
+        $scope.protocol;
         var protocolId = $scope.$parent.$routeParams.id;
         if(protocolId[0] == ':')
         protocolId = protocolId.slice(1);
-        console.log(protocolId)
         function getProtocol(id){
-            console.log(10)
-            console.log(id)
-            formAPIService.getProtocols(10).success(function(response){
-                console.log(response)
+            formAPIService.getProtocols(id).success(function(response){
+                $scope.protocol = response;
             }).then(function(response){
                     console.log(response)
                 })
