@@ -634,6 +634,15 @@ angular.module('MDAndersonMobile.controllers', ['ui.bootstrap', 'geolocation', '
         //TODO use this to see the route info
         console.log($scope.$parent)
         console.log($scope.$parent.$routeParams)
+        var id = $scope.$parent.$routeParams.id;
+        function getProtocol(id){
+            formAPIService.getProtocols(id).success(function(){
+                console.log(response)
+            }).then(function(){
+                    console.log(response)
+                })
+        };
+        getProtocol()
     }])
     .controller('allProtocols',['$scope',function($scope,formAPIService){
         $scope.allProtocols = [];
