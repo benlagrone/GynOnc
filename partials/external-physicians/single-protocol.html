@@ -1,23 +1,26 @@
-<div id="referral-thankyou" class="referral-thankyou pageWrap">
-    <div class="row"><br></div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h3 id="referral-thankyou-head">
-                    Thank you
-                </h3>
-                <p>Your inquiry has been submitted. What would you like to do next?</p>
+<div id="single-protocol" class="single-protocol pageWrap">
+    <div class="row filteredResults" >
+        <div class="">
+            <div class="alert alert-info">
+                <div class="popover-title">
+                    {{protocol}}
+                    <a href="http://utm-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument"><span>{{protocol}}</span></a>
+                    <button type="button" class="close fui-cross" data-dismiss="alert"></button>
+                    &nbsp;
+                    <button type="button" class="close " ng-class="result.selected===true?'fa fa-check-circle':'fa fa-circle-o'" ng-click="result.selected=!result.selected;watchSelected()"></button>
+                                <span stye="display:none">{{protocol}}<span></span>
+                            &nbsp;
+                            <br>
+                            <a href="http://ut3d4cat3S
+                            m-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument"><span>Protocol#&nbsp;{{protocol}}</span></a>
+                </div>
+                <div class="inside">
+                    <p>
+                        <a href="http://utm-ext01a.mdacc.tmc.edu/Dept/PROT/clinicaltrialswp.nsf/0d6be1254b4d542d86256be600563c90/c6e26b7c4a341263862571620066ff4f?OpenDocument"></a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <a href="#/trials-filter" class="btn btn-hg btn-block btn-primary">Search for more trials</a>
-        </div>
-        <div class="col-md-6">
-            <a href="/physicians/" class="btn btn-hg btn-block btn-info">Go to the home page</a>
-        </div>
-    </div>
-    <br>
 </div>
 
